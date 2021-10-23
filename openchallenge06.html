@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+<meta charset ="UTF-8">
+<title>별 문자 출력하기</title>
+</head>
+<body>
+<h3>별 문자 출력하기</h3>
+<hr>
+<script>
+var StarNumber = prompt("정수를 입력하세요");
+var num1 = parseInt(StarNumber);
+var num2 = Number(StarNumber);
+
+if (num1 == num2){
+    if (StarNumber>0){
+        function printStar(StarNumber){
+            for (var i = 1; i <= StarNumber; i++){
+                for (var j = 0; j < i; j++)document.write("*");
+        document.write("<br>");
+                }
+            }
+                printStar(StarNumber);
+
+        }else {document.write("입력오류입니다.");} /*음수 입력 시*/
+    }else {document.write("입력 오류입니다.");} /*문자열 혹은 실수 입력 시*/
+printStar();
+</script>
+</body>
+</html>
