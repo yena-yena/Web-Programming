@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+ <title>갬블링 게임</title>
+</head>
+<style>
+    #score {
+        background-color : beige;
+        width : 200px;
+        height : 150px;}
+
+    span {
+        font-size : 100px;
+        margin-left : 5px;
+        color : blue;}
+</style>
+<body>
+<h3>겜블링 게임</h3>
+<p>각 숫자를 클릭하면 0에서 2 사이의 난수로 바뀝니다. 모두 같은 수가 나오면 승리합니다.</p>
+<hr>
+<script>
+function first_span() {  
+    var first = document.getElementById("first");
+    var num = Math.floor(Math.random()*3);
+    first.innerHTML = num;
+}
+
+function second_span() {
+    var second = document.getElementById("second");
+    var num = Math.floor(Math.random() * 3);
+    second.innerHTML = num;
+}
+function third_span() {
+    var third = document.getElementById("third");
+    var num = Math.floor(Math.random() * 3);
+    third.innerHTML = num;
+
+    if(first.innerHTML == second.innerHTML && second.innerHTML == third.innerHTML) {
+        var rs1 = document.getElementById("result");
+        rs1.innerHTML = "Success(click here to do again)";
+    }
+    else {
+        var rs2 = document.getElementById("result");
+        rs2.innerHTML = "fail(click here to do again)";
+    }
+}
+function again() {
+    document.getElementById("result").innerHTML = " ";
+    document.getElementById("third").innerHTML = 0;
+    document.getElementById("second").innerHTML = 0;
+    document.getElementById("third").innerHTML = 0;
+}
+</script>
+        
+<div id = "score">
+    <span id="first" onclick = "first_span()">0</span> <!--first라는 id를 클릭 시 first_span()함수가 실행됨-->
+    <span id="second" onclick = "second_span()">0</span>
+    <span id="third" onclick = "third_span()">0</span></div>
+<div id = "result" onclick = "again()"></div> <!--result 라는 id를 클릭 시 again()함수가 실행됨-->>
+</body>
+</html>

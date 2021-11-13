@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta charset = "utf-8">
+ <title>계산기 만들기</title>
+ <style>
+    table {
+        text-align: center;
+    }
+    td {
+        width: 25%;
+    }
+    tr {
+        width: 25%;
+    }
+    input {
+        width: 90%;
+    }
+</style>
+</head>
+<body>
+ <h3>계산기 만들기</h3>
+ <hr>
+ <form>
+    <input type = "text" id = "func" value = "0" style = "width:80%">
+    <table border=0 style="width:100%; height:100%;">
+        <tr colspan = "3">
+            <td><input type = "button" value = "BACK" onclick = "back()"></td>
+            <td><input type = "button" value = "CE" onclick = "ce()"></td>
+            <td><input type = "button" value = "C" onclick = "ce()"></td>
+            <td><input type = "button" value = "=" onclick = "equal()"></td></tr>
+
+        <tr><td><input type = "button" value = "7" onclick = "number('7')"></td>
+            <td><input type = "button" value = "8" onclick = "number('8')"></td>
+            <td><input type = "button" value = "9" onclick = "number('9')"></td>
+            <td><input type = "button" value = "/" onclick = "number('/')"></td></tr>
+
+        <tr><td><input type = "button" value = "4" onclick = "number('4')"></td>
+            <td><input type = "button" value = "5" onclick = "number('5')"></td>
+            <td><input type = "button" value = "6" onclick = "number('6')"></td>
+            <td><input type = "button" value = "*" onclick = "number('*')"></td></tr>
+
+        <tr><td><input type = "button" value = "1" onclick = "number('1')"></td>
+            <td><input type = "button" value = "2" onclick = "number('2')"></td>
+            <td><input type = "button" value = "3" onclick = "number('3')"></td>
+            <td><input type = "button" value = "-" onclick = "number('-')"></td></tr>
+
+        <tr><td><input type = "button" value = "0" onclick = "number('0')"></td>
+            <td><input type = "button" value = "+" onclick = "number('+')"></td>
+            <td><input type = "button" value = "square" onclick = "square()"></td>
+            <td><input type = "button" value = "square root" onclick = "squareroot()"></td></tr>
+
+     </table>
+ </form>
+
+
+    <script>
+        var num = "";
+        function number(numberIs) {
+            num = num + numberIs;
+            document.getElementById("func").value = num;
+        }
+
+        function equal() {
+            document.getElementById("func").value = eval(num);
+
+        }
+
+        function ce() {
+            document.getElementById("func").value = "";
+            document.getElementById("func").value = "0";
+            num = "";
+        }
+
+        function back() {
+            length = document.getElementById("func").value.length;
+            document.getElementById("func").value = document.getElementById("func").value.substring(0, length - 1);
+
+            num = document.getElementById("func").value.toString();
+            document.getElementById("func") = num;
+        }
+
+        function square() {
+            num = (num)**2;
+            document.getElementById("func") = num;
+        }
+
+        function squareroot() {
+            num = (num)**(1/2);
+            document.getElementById("func") = num;
+        }
+    </script>
+</body>
+</html>
